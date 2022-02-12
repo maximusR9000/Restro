@@ -1,0 +1,48 @@
+﻿@page
+@model Restro.Pages.OrderPage.PlaceOrderModel
+@{
+}
+<div class="container">
+        <form method="post">
+            <div class="text-center">
+                <h2>Enter Delivery Address: </h2>
+            </div>
+            <!-- Text input -->
+          <div class="form-outline mb-4">
+            <input type="text"class="form-control" asp-for="@Model.Order.CustomerName" />
+            <label class="form-label" asp-for="@Model.Order.CustomerName">Customer Name</label>
+          </div>
+
+
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" class="form-control" asp-for="@Model.Order.Street" />
+                <label class="form-label" asp-for="@Model.Order.Street" >Street</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" class="form-control" asp-for="@Model.Order.City" />
+                <label class="form-label" asp-for="@Model.Order.City">City</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text input -->
+          <div class="form-outline mb-4">
+            <input type="text" class="form-control" asp-for="@Model.Order.State" />
+            <label class="form-label" asp-for="@Model.Order.State" >State</label>
+          </div>
+  
+          <!-- Text input -->
+          <div class="form-outline mb-4">
+            <input type="text" class="form-control" asp-for="@Model.Order.Country" />
+            <label class="form-label" asp-for="@Model.Order.Country" >Country</label>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
+        </form>
+</div>

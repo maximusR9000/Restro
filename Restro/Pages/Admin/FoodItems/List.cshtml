@@ -1,0 +1,78 @@
+﻿@page
+@model Restro.Pages.Admin.FoodItems.ListModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="container">
+  <h1>Food Items</h1>
+  <p>Here we can view the list of food Items</p>
+  <div class="row">
+    
+    <form method="post"class="row g-3">
+        <div class="col col-lg-3">Select Food Category: </div>
+        <div class="col col-lg-3">&nbsp;</div>
+        <div class="col col-lg-3">
+            <select class="form-select" asp-for="Number">
+                @foreach (var category in @Model.Categories)
+                {
+                    <option value=@category.Id>@category.CategoryName</option> 
+                }
+            </select>
+        </div>
+
+        <div class="col col-lg-3">
+            <button type="submit" class="btn btn-primary mb-3">List</button> <a asp-page="/Admin/FoodItems/Add" class="btn btn-primary mb-3">Add Food Item</a>
+        </div>
+    </form>
+
+   </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        <th>S.No</th>
+                        <th>Food Item Name</th>
+                        <th>Category Name</th>
+                        <th>Price</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var foodItem in @Model.FoodItems)
+                     {
+                    <tr>
+                        <td>@foodItem.Id</td>
+                        <td>@foodItem.FoodItemName</td>
+                        <td>@foodItem.Category.CategoryName</td>
+                        <td>@foodItem.Price</td>
+                        <td>
+                            <a asp-page="/Admin/FoodItems/Add"
+                               asp-route-ID="@foodItem.Id"
+                               class="btn btn-warning">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-page="/Admin/FoodItems/Details"
+                               asp-route-ID="@foodItem.Id"
+                               class="btn btn-info">Details</a>
+                        </td>
+                        <td>
+                            <a asp-page="/Admin/FoodItems/Delete"
+                               asp-route-ID="@foodItem.Id"
+                               class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                     }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@page
+@model Restro.Pages.Admin.Categories.ListModel
+@{
+	Layout = "_AdminLayout";
+}
+
+<div class="container">
+
+    
+    <h1>Categories</h1>
+    <p>Here we can view the list of category Items</p>
+
+    <div class="col col-lg-3">
+        <a asp-page="/Admin/Categories/Add" class="btn btn-primary mb-3">Add Category</a>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Id</th>
+                        <th>Category Name</th>
+                        <th>Category Description</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var category in @Model.Categories)
+                     {
+                    <tr>
+                        <td>@category.Id</td>
+                        <td>@category.CategoryName</td>
+                        <td>@category.ShortDescription</td>
+                        <td>
+                            <a asp-page="/Admin/Categories/Add"
+                               asp-route-ID="@category.Id"
+                               class="btn btn-warning">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-page="/Admin/Categories/Details"
+                               asp-route-ID="@category.Id"
+                               class="btn btn-info">Details</a>
+                        </td>
+                        <td>
+                            <a asp-page="/Admin/Categories/Delete"
+                               asp-route-ID="@category.Id"
+                               class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                     }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

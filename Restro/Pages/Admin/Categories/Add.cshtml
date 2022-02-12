@@ -1,0 +1,47 @@
+﻿@page
+@model Restro.Pages.Admin.Categories.AddModel
+@{
+}
+
+<div class="container">
+    <h1>Add Category</h1>
+    <form method="post" class="mb-3">
+        <input hidden asp-for="category.Id" />
+        
+        <div class="form-group row">
+            <label asp-for="category.CategoryName" class="col-2 col-form-label"></label>
+            <div class="col-6">
+                <input asp-for="category.CategoryName"
+                       class="form-control" placeholder="Enter Category Name" />
+            </div>
+            <span asp-validation-for="category.CategoryName" class="col-4 text-danger"></span>
+            
+        </div>
+        
+        <div class="row">&nbsp;</div>
+        
+        <div class="form-group row">
+            <label asp-for="category.ShortDescription" class="col-2 col-form-label"></label>
+            <div class="col-6">
+                <input asp-for="category.ShortDescription"
+                       class="form-control" placeholder="Enter Food Item Description" />
+            </div>
+            <span asp-validation-for="category.ShortDescription" class="col-4 text-danger"></span>
+        </div>
+
+        <div class="row">&nbsp;</div>
+        
+        <div class="row">&nbsp;</div>
+        
+        <div class="row">
+            <div class="col-6 offset-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a asp-page="/Admin/Categories/List" class="btn btn-warning">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}

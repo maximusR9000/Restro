@@ -1,0 +1,38 @@
+﻿@page
+@model Restro.Pages.Admin.Categories.DetailsModel
+@{
+}
+
+@if(Model.Message != null)
+{
+    <div class="row">
+        <div class="alert alert-success fade show" role="alert">
+            @Model.Message
+        </div>
+    </div>
+}
+
+<div class="container">
+    <h1>Category Details</h1>
+    <div class="row">
+        <div class="col-2">Category Name :</div>
+        <div class="col-6">@Model.category.CategoryName</div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">Category Description :</div>
+        <div class="col-6">@Model.category.ShortDescription</div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-6 offset-2">
+            <a asp-page="/Admin/Categories/List"
+               class="btn btn-primary">Back To Categories</a>
+        </div>
+    </div>
+
+</div>

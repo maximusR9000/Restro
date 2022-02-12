@@ -1,0 +1,92 @@
+﻿@page "{id:int?}"
+@model Restro.Pages.Admin.FoodItems.AddModel
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container">
+    <h1>Add Food Item</h1>
+    <form method="post" class="mb-3" enctype="multipart/form-data">
+        <input hidden asp-for="foodItem.Id" />
+        
+        <div class="form-group row">
+            <label asp-for="foodItem.FoodItemName" class="col-2 col-form-label"></label>
+            <div class="col-6">
+                <input asp-for="foodItem.FoodItemName"
+                       class="form-control" placeholder="Enter Food Item Name" />
+            </div>
+            
+        </div>
+        
+        <div class="row">&nbsp;</div>
+        
+        <div class="form-group row">
+            <label asp-for="foodItem.FoodItemDescription" class="col-2 col-form-label"></label>
+            <div class="col-6">
+                <input asp-for="foodItem.FoodItemDescription"
+                       class="form-control" placeholder="Enter Food Item Description" />
+            </div>
+            
+        </div>
+
+        <div class="row">&nbsp;</div>
+
+        <div class="row">
+            <label asp-for="ImageUrl" class="col-2 col-form-label"></label>
+            <div class="col-6">
+                <input asp-for="ImageUrl" class="custom-file-input form-control" />
+                <label class="custom-file-label">Click Here to Change Image</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-2">
+                <img src="/images/@Model.foodItem.ImageUrl" width="100" height="100"
+                     class="img-thumbnail" />
+            </div>
+        </div>
+
+        <div class="row">&nbsp;</div>
+
+        <div class="form-group row">
+            <label asp-for="foodItem.Price" class="col-2 col-form-label"></label>
+            <div class="col-6">
+                <input asp-for="foodItem.Price"
+                       class="form-control" placeholder="Enter Price" />
+            </div>
+            
+        </div>
+
+        <div class="row">&nbsp;</div>
+        
+        <div class="row">
+            <label asp-for="foodItem.Category" class="col-2 col-form-label"></label>
+            <div class="col-6">
+                <select class="form-select" asp-for="foodItem.CategoryId">
+                    @foreach (var category in @Model.Categories)
+                    {
+                       <option value=@category.Id>@category.CategoryName</option> 
+                    }
+                </select>
+            </div>
+        </div>
+        
+        <div class="row">&nbsp;</div>
+        
+        <div class="row">
+            <div class="col-6 offset-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a asp-page="/Admin/FoodItems/List" class="btn btn-warning">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function(){
+                var filename = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        });
+    </script>
+}

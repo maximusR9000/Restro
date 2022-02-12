@@ -1,0 +1,40 @@
+﻿@page
+@model Restro.Pages.OrderPage.IndexModel
+@{
+}
+
+<div class="container">
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+
+                <th>#</th>
+                <th>Customer</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Order Date</th>
+                <th>Total Price</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var order in @Model.orderDetails)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.Street</td>
+                    <td>@order.City</td>
+                    <td>@order.State</td>
+                    <td>@order.Country</td>
+                    <td>@order.OrderDate</td>
+                    <td>@order.TotalPrice</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

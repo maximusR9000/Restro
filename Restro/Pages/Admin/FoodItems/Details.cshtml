@@ -1,0 +1,53 @@
+﻿@page
+@model Restro.Pages.Admin.FoodItems.DetailsModel
+@{
+}
+
+@if(Model.Message != null)
+{
+    <div class="row">
+        <div class="alert alert-success fade show" role="alert">
+            @Model.Message
+        </div>
+    </div>
+}
+
+<div class="container">
+    <h1>Food Item Details</h1>
+    <div class="row">
+        <div class="col-2">Food Item Name :</div>
+        <div class="col-6">@Model.foodItem.FoodItemName</div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">Food Item Description :</div>
+        <div class="col-6">@Model.foodItem.FoodItemDescription</div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">Food Image :
+        <br />
+        <img src="/images/@Model.foodItem.ImageUrl"
+             class="img-thumbnail"  width="100" height="100" />
+        </div>
+        
+    </div>
+
+
+    <div class="row">
+        <div class="col-2">Price :</div>
+        <div class="col-6">@Model.foodItem.Price</div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-6 offset-2">
+            <a asp-page="/Admin/FoodItems/List"
+               class="btn btn-primary">Back To Food Items</a>
+        </div>
+    </div>
+
+</div>

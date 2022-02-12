@@ -1,0 +1,17 @@
+﻿@page
+@model Restro.Pages.Admin.FoodItems.DeleteModel
+@{
+}
+
+<div class="row">
+	<div class="alert alert-dialog">
+		<h3>Are you sure to delete @Model.foodItem.FoodItemName ?</h3>
+	</div>
+</div>
+
+<div class="row">
+	<form method="post">
+		<button type="submit" class="btn btn-danger">Yes</button>
+        <a asp-page="/Admin/FoodItems/List" class="btn btn-info">No</a>
+	</form>
+</div>
